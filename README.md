@@ -12,9 +12,7 @@
 
 ```js
 // 脚本的位置
-
 const plugin = '.obsidian/snippets/WeatherView.js'
-const WeatherView = await app.vault.adapter.read(plugin)
 
 let settings = {};
 
@@ -31,15 +29,22 @@ settings.schedule = ['元旦','2023-1-1']
 
 settings.custom = {emoji:"很好"}
 
+const WeatherView = await app.vault.adapter.read(plugin)
+
 const fn = new Function("dv","input",WeatherView)
 
+// 得到两个执行函数
 const {genWeather,allWeather} = fn.call(this,this,settings);
 
+// 输出天气表格和关照语
 await genWeather();
 
+// 输出缓存数据参照6说明
 let weatherData = await allWeather("2022",["天气"])
 
-dv.el('p',JSON.stringify(weatherData))
+// 打印输出的数据到页面上
+// 配合dataview可以做更多的事情
+dv.el('div',JSON.stringify(weatherData))
 ```
 
 4. settings说明，配置全部为非必填
