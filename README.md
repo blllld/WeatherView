@@ -6,6 +6,8 @@
 2. 修改插件文件中 `const key = "和风天气Key"`后才可以使用
 需要到[和风天气官网](https://www.qweather.com/ )申请个人码  
 
+和风试用key：`dc0f31ac6f37484f88e3e7d45b84e403`，会有次数限制，建议个人申请自己的码最好
+
 3. 在需要天气的md中添加`dataviewjs`代码块以及以下内容：
 
 ```dataviewjs
@@ -15,6 +17,8 @@ const plugin = '.obsidian/snippets/WeatherView.js'
 const WeatherView = await app.vault.adapter.read(plugin)
 
 let settings = {};
+
+settings.key="和风天气key"
 
 // 如果定位不准时可以填写指定城市
 settings.city = "";
