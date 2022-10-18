@@ -16,7 +16,8 @@ const plugin = '.obsidian/snippets/WeatherView.js'
 
 let settings = {};
 
-settings.key="和风天气key"
+// 和风天气key，可以在WeatherView.js中配置固定key，也可以在此配置单次key
+settings.key="dc0f31ac6f37484f88e3e7d45b84e403"
 
 // 如果定位不准时可以填写指定城市
 settings.city = "";
