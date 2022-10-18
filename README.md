@@ -61,7 +61,7 @@ dv.el('p',JSON.stringify(weatherData))
 6. allWeather 获取已经缓存的按天天气
 
 
-`const weatherData = allWeather(year,name,range)`
+`const weatherData = await allWeather(year,name,range)`
 
 
 |   名称   |  说明    |
