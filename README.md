@@ -10,7 +10,7 @@
 
 3. 在需要天气的md中添加`dataviewjs`代码块以及以下内容：
 
-```dataviewjs
+```js
 // 脚本的位置
 
 const plugin = '.obsidian/snippets/WeatherView.js'
