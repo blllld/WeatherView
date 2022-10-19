@@ -313,9 +313,9 @@ async function genWeather(settings) {
 
     resetDate(isToday);
 
-    let data = await retrieveWeatherStates()[today] || {};
+    let data = await retrieveWeatherStates();
 
-    let { loc = [], ano = [], city, custom: customData } = data;
+    let { loc = [], ano = [], city, custom: customData } = data[today] || {};
     let shouldUpdate = false;
 
     if (!loc.length) {
