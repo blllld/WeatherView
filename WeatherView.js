@@ -225,16 +225,21 @@ function weatherTableData(weather) {
  * 设置日期备忘录
  */
 function setupRemindSchedule([dateName, date]) {
-    if (!dateName || !date) {
-        return;
-    }
+
     const pastDays = now.diff(now.format("YYYY-1-1"), "days");
-    const remaindDays = moment(date).diff(now, "days");
 
-    const hello = fileCreateDate.format("A好，今天是YYYY年MM月DD日 dddd")
-    const pastDay = `今年已经过去${pastDays}天，距离${dateName}还有${remaindDays}天`
+    const hello = now.format("A好，今天是YYYY年MM月DD日 dddd")
+    const pastDay = `今年已经过去${pastDays}天`;
 
-    dv.el('div', [hello, pastDay].join("，"))
+    const helloWorld = [hello, pastDay];
+    if (dateName && date) {
+        const remaindDays = moment(date).diff(now, "days");
+        const remaindDay = `距离${dateName}还有${remaindDays}天`
+        helloWorld.push(remaindDay)
+    }
+
+
+    dv.el('div', helloWorld.join("，"))
     dv.el('br')
 }
 
@@ -260,6 +265,7 @@ function setupCurrentWeather(weather, cityName) {
 
     dv.el('div', temperture);
     if (days > 1) {
+        dv.el('br')
         let weatherData = weatherTableData(weather)
         dv.el('div', `未来${days}天${cityName}的天气如下：`)
         dv.table(weatherTableHead, weatherData)
