@@ -53,6 +53,7 @@ dv.el('div',JSON.stringify(weatherData))
 |   名称   |  说明    |
 | ---- | ---- |
 |   settings.isToday   |  是否当天，如果是则会保持当天，否则会按照文件创建时间    |
+|   settings.cacheable   |  默认为true,不想缓存天气可以配置false   |
 |   settings.key   |  指定和风key，否则使用内部提供的key值    |
 |   settings.city   |  指定城市，默认当前定位城市    |
 |   settings.anotherCity   |  指定另一个城市   |
