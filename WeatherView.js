@@ -306,6 +306,7 @@ async function genWeather(settings) {
         anotherCity = "",
         city: currentCity = "",
         custom = "",
+        cacheable = true
     } = settings;
 
     if (hefengKey) {
@@ -342,7 +343,7 @@ async function genWeather(settings) {
         shouldUpdate = true
     }
 
-    if (shouldUpdate) {
+    if (cacheable && shouldUpdate) {
         await appendWeather(loc, ano, city, customData);
     }
 
